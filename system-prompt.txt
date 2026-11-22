@@ -1,0 +1,24 @@
+[Subagent Context] You are running as a subagent (depth 1/2); your completed results are delivered to your parent agent automatically, so do not busy-poll for status.
+
+[Subagent Task]:
+Build a make.fun entry for competition news-image-20261122 (rule 5b, fully buildable with the standard CLI flow). Do NOT submit — the parent re-bundles and submits after your run.
+
+COMPETITION (verified via API just now):
+- Slug: news-image-20261122 — "Sum up 22 November's world news in one image"
+- Reward: $100, top 50 share it. Deadline entry: 24 Nov 2026 07:00 WIB (2026-11-24T00:00:00Z). entryFeeUsd: null (FREE, verified). submissionCount: 0. Status: open. Published/opened: 22 Nov 2026 07:00 WIB (00:00Z) — already open, so repo + build session starting now are AFTER opening.
+- Task: a program that writes one image to /output/entry.png summing up the world's news of Sunday 22 November 2026. An AI judge compares images pairwise; the image itself must show the news (the judge has no news feed). PNG or JPEG, at most 1 MiB, at most 1024×1024. Program runs twice, both runs must write identical bytes. No network at runtime.
+
+WHAT TO BUILD (same pattern as the already-submitted news-image-20261119/20261120/20261121 entries):
+1. Research REAL world news of Sunday 22 November 2026 (use web/news search; the UTC day just started, so use the real news available so far today plus the biggest ongoing stories). Pick ~6 genuine, verifiable stories and summarise each in a short headline + 1-line sub-headline. Do NOT invent news.
+2. Build a newspaper-style image (1024×1024 PNG) with a masthead ("22 NOVEMBER 2026" / world-news theme) and 6 panels, drawn fresh in this session (e.g. with PIL). Main program at main.py in the repo root, deterministic (two runs byte-identical), stdlib + PIL only, no network.
+3. Use the make.fun CLI at ~/workspace/makefun/kit-new/tiny-chess-01-kit/cli/makefun.mjs: `init --competition news-image-20261122` (fetches the official kit), then bundle, then check with `--transcripts bundle.tar.gz`.
+4. Create a NEW public GitHub repo Absaa00/news-image-20261122 (created after the competition opened — it is already open), LICENSE MIT with the line `SPDX-License-Identifier: MIT`, .makefun/owner.json for account @mereum, wallet 6dp4rC7wcmqivTFdD6bjT8qpcRsQpVZrhTraXDhQu1Vi, keypair ~/workspace/makefun/makefun-keypair.json. NEVER display or paste any credential/key contents.
+5. Work directory: ~/workspace/makefun/entries/news-image-20261122/.
+
+HARD RULES (from past lessons):
+- Write main.py FRESH in this session; do NOT copy it from any earlier news-image entry file (thinking_reproduces check counts only lines authored in this session).
+- Do NOT submit. If `thinking_priced` fails with 0 usage rows, that is NORMAL for a subagent (usage rows only appear in muse.db after your run ends) — report it, don't try to fix it.
+- NOL uang keluar: no payment, no fee, no purchase anywhere.
+- Report back: repo URL + commit hash, entry.png sha256 + size, check results (passed/failed counts), and the exact bundle path.
+
+Deadline for your build: well before 24 Nov 07:00 WIB; aim to finish within this session.

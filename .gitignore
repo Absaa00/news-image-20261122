@@ -1,0 +1,9 @@
+# news-image-20261122 — local-only artifacts for the 22 Nov world-news front page
+bundle.tar.gz
+rebundle.tar.gz
+/output/
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+STATUS.md
